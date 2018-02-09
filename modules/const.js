@@ -42,9 +42,9 @@
 
     },
     // ustawienie danych potrzebnych do wykorzystania usług amazon min. nazwa koszyka, link, tabela do logowania
-    bucketName: "lesiakbucket",
-    messageQueue: "https://sqs.eu-west-2.amazonaws.com/105347894034/LesiakQueue",
-    logTableName: "LesiakLogDB",
+    bucketName: "anitalesiakbucket",
+    messageQueue: "https://sqs.eu-west-2.amazonaws.com/105347894034/anitaqueue",
+    logTableName: "anitalogdb",
     receiveInterval: 5 * 1000,
 
     // wartości sqs charakteryzujące każdą operację 
