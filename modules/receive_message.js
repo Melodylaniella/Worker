@@ -5,7 +5,7 @@ var Jimp = require("jimp");
 var sqs = new AWS.SQS({apiVersion: Const.API_VERSION});
 var s3 = new AWS.S3();
 
-// ustawienie parametrow np poprania 10 wiadomosci naraz 
+// ustawienie parametrow na pobranie 10 wiadomosci w jednym cyklu 
 var params = {
     MaxNumberOfMessages: 10,
     QueueUrl: Const.messageQueue,
@@ -32,7 +32,7 @@ var receiveMessages = function () {
 
             if (data.Messages) {
                 data.Messages.forEach(function (value) {
-
+			// sprawdzenie licznika wiadomoœci, jeœli by³a ju¿ odczytana zostanie usuniêta
                     if (Number(value["Attributes"].ApproximateReceiveCount) <= 1) {
 
                         const numberType = value.MessageAttributes["MessageType"].StringValue;
